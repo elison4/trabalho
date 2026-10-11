@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "packageManager": "npm",
+  "testRunner": "jest",
+  "jest": { "configFile": "jest.antes.config.js" },
+  "mutate": ["src/**/*.js"],
+  "reporters": ["html", "json", "clear-text", "progress"],
+  "htmlReporter": { "fileName": "reports/antes/mutation.html" },
+  "jsonReporter": { "fileName": "reports/antes/mutation.json" },
+  "coverageAnalysis": "perTest",
+  "thresholds": { "high": 90, "low": 70, "break": null }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "unit-tests-jest",
+  "version": "1.0.0",
+  "description": "Example to unit tests using Jest",
+  "main": "index.js",
+  "author": "ugioni",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^30.4.2",
+    "rimraf": "^6.1.3",
+    "mkdirp": "^3.0.1"
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "^9.0.0",
+    "@stryker-mutator/jest-runner": "^9.0.0"
+  },
+  "scripts": {
+    "clean": "rimraf ./coverage && mkdirp ./coverage",
+    "test": "npm run clean && jest",
+    "coverage": "npm run clean && jest --coverage",
+    "mutation:antes": "stryker run stryker.antes.config.json",
+    "mutation": "stryker run stryker.config.json",
+    "readme": "node scripts/gerar-readme.js",
+    "tudo": "npm run mutation:antes && npm run mutation && npm run readme"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ]
+  }
+}
